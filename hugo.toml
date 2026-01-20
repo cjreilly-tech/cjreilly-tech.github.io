@@ -2,3 +2,7 @@ baseURL = 'https://cjreilly.tech'
 languageCode = 'en-us'
 title = 'Reilly-Tech'
 theme='cozy'
+[services]
+  [services.googleAnalytics]
+    id = "G-XXXXXXXXXX"
+
