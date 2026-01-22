@@ -1,0 +1,41 @@
+footer label[for="themer"] {
+    display: none;
+}
+
+/* Hover image on menu links */
+#patterns-list .pattern a {
+  position: relative;
+}
+
+#patterns-list .pattern a::after {
+  content: "";
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#patterns-list .pattern a:hover::after,
+#patterns-list .pattern a:focus-visible::after {
+  opacity: 1;
+}
+
+#patterns-list .menu-home::after {
+  background-image: url("/images/HomeEmoji.png");
+}
+
+#patterns-list .menu-blog::after {
+  background-image: url("/images/BlogEmoji.png");
+}
+
+#patterns-list .menu-about::after {
+  background-image: url("/images/NoteEmoji.png");
+}

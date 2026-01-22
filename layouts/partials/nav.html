@@ -1,0 +1,28 @@
+<nav id="patterns-nav" class="patterns" role="navigation">
+  <h2 class="vh">{{ T "nav_main_navigation" }}</h2>
+  <button id="menu-button" aria-expanded="false">
+    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+      <use xlink:href="#menu"></use>
+    </svg>
+    {{ T "nav_button_menu" }}
+  </button>
+  {{ $current := . }}
+  <ul id="patterns-list">
+  {{ range .Site.Menus.nav }}
+    <li class="pattern">
+      {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+      {{ $active = or $active (eq .Name $current.Title) }}
+      {{ $active = or $active (and (eq .Name "Posts") (eq $current.Section "posts" )) }}
+      {{ $active = or $active (and (eq .Name "Notes") (eq $current.Section "notes" )) }}
+      {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+      {{ $linkClass := "menu-link" }}
+      {{ if eq .Name "Home" }}{{ $linkClass = "menu-link menu-home" }}{{ end }}
+      {{ if or (eq .Name "Posts") (eq .Name "Blog") }}{{ $linkClass = "menu-link menu-blog" }}{{ end }}
+      {{ if eq .Name "About" }}{{ $linkClass = "menu-link menu-about" }}{{ end }}
+      <a href="{{ .URL }}" class="{{ $linkClass }}" {{ if $active }}aria-current="page"{{ end }}>
+        <span class="text">{{ .Name }}</span>
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+</nav>
