@@ -1,4 +1,3 @@
-# Hugo gitignores
-/site/resources/
-/site/public/
+/public/
+/resources/
 .hugo_build.lock
