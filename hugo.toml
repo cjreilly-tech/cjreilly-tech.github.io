@@ -1,4 +1,88 @@
-baseURL = 'https://example.org/'
+title = "CJR"
+baseURL = 'https://cjreilly.tech/'
+
 locale = 'en-us'
-title = 'My New Hugo Project'
+defaultContentLanguage = "en"
+
+enableEmoji = true
+ignoreErrors = ["additional-script-loading-error"]
+
 theme = "hugo-blog-awesome"
+
+[services]
+  [services.googleAnalytics]
+    id = ''
+  [services.disqus]
+    shortname = ''
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+############################## English language ################################
+[Languages.en]
+  label = "English"
+  locale = "en-us"
+  contentDir = "content/en"
+  weight = 1
+
+  [Languages.en.menu]
+  [[Languages.en.menu.main]]
+    pageRef="/"
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[Languages.en.menu.main]]
+    pageRef="posts"
+    name = 'Posts'
+    url = '/posts/'
+    weight = 20
+  [[Languages.en.menu.main]]
+    pageRef="about"
+    name = 'About'
+    url = '/about/'
+    weight = 30
+
+[Languages.en.params]
+  sitename = "Chris Reilly"
+  defaultColor = "auto"
+  description = "All things techy"
+  mainSections = ['posts']
+  toc = true
+  tocOpen = false
+  goToTop = true
+  dateFormat = ""
+  rssFeedDescription = "summary"
+
+[Languages.en.params.author]
+  avatar = "signature.png"
+  #intro = "Chris Reilly"
+  name = "Christopher John Reilly"
+  description = "All things techy"
+
+[Languages.en.params.webmanifest]
+  name = "sitename"
+  short_name = "sitename"
+  start_url = "/"
+  theme_color = "#434648"
+  background_color = "#fff"
+  display = "standalone"
+
+###################################################################
+
+[params.browserconfig]
+  TileColor = "#2d89ef"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/cjreilly-tech"
+
+[[params.socialIcons]]
+name = "Rss"
+url = "/index.xml"

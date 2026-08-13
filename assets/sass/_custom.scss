@@ -1,0 +1,23 @@
+// Signature "avatar": replaces the default circular photo avatar with a
+// wide, hand-signed name graphic sized to read like an actual signature.
+.author-signature {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
+  -webkit-animation: 0.5s ease-in forwards fadein;
+  animation: 0.5s ease-in forwards fadein;
+}
+
+// The signature is drawn in black ink; flip it to white so it stays
+// legible against the dark theme background.
+html.dark .author-signature {
+  filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .author-signature {
+    filter: invert(1);
+  }
+}
